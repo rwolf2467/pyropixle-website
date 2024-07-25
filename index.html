@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PyroPixle - Home</title>
+  <link rel="stylesheet" href="css/style-new.css">
+  <link rel="icon" href="img/pyro-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+<div class="header-container">
+  <nav class="navbar">
+      <ul>
+          <li>
+            <a href="https://pyropixle.com" class="center-text" style="color: whitesmoke">
+              <lord-icon
+                src="https://cdn.lordicon.com/wmwqvixz.json"
+                trigger="in"
+                delay="500"
+                state="in-home"
+                colors="primary:#e4e4e4"
+                style="width:40px;height:40px">
+              </lord-icon>
+              <b><u>Home</u></b></a>
+          </li>
+          <li>
+            <a href="https://pyropixle.com/gtc/">
+              <lord-icon
+                src="https://cdn.lordicon.com/omiqopzf.json"
+                trigger="in"
+                delay="1000"
+                state="in-book"
+                colors="primary:#ffffff"
+                style="width:40px;height:40px">
+              </lord-icon>
+            GTC</a>
+          </li>
+          <li>
+            <a href="https://pyropixle.com/privacy/">
+              <lord-icon
+                  src="https://cdn.lordicon.com/hrjifpbq.json"
+                  trigger="in"
+                  delay="1500"
+                  state="in-account"
+                  colors="primary:#ffffff"
+                  style="width:40px;height:40px">
+              </lord-icon>
+              Privacy</a>
+          </li>
+          <li>
+            <a href="https://pyropixle.com/baxi/">
+              <lord-icon
+                src="https://cdn.lordicon.com/jnikqyih.json"
+                trigger="in"
+                delay="2000"
+                state="in-category"
+                colors="primary:#ffffff"
+                style="width:40px;height:40px">
+              </lord-icon>
+              Baxi</a>
+          </li>
+          <li>
+            <a href="https://status.pyropixle.com">
+              <lord-icon
+                src="https://cdn.lordicon.com/wkvacbiw.json"
+                trigger="in"
+                delay="2500"
+                state="in-build"
+                colors="primary:#ffffff"
+                style="width:40px;height:40px">
+              </lord-icon>
+            Status</a>
+          </li>
+      </ul>
+  </nav>
+</div>
+
+
+
+
+<div class="content no_color">
+  <h1 class="center-text">
+
+    PyroPixle<br>
+    <a href="" class="typewrite" data-period="2000" data-type='[ " Security", " Hosting", " Bots", " Free" ]'>
+      <span class="wrap"></span>
+    </a><br>
+  </h1>
+</div>
+
+
+<div class="content">
+  <h2>About us</h2>
+  <hr>
+  <p>Welcome to PyroPixle! <br>We are a creative team of 5 people who have been leading various projects since 2021.
+    With passion and commitment, we bring innovative ideas to life and offer our community great products and services of the highest quality.<br>
+
+  </p>
+</div>
+
+<div class="scroll-downs content no_color">
+  <div class="mousey">
+    <div class="scroller"></div>
+  </div>
+</div>
+<script>
+  var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 150 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+
+    setTimeout(function() {
+      that.tick();
+    }, delta);
+  };
+
+  window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+  };
+</script>
+</body>
+</html>

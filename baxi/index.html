@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PyroPixle - Baxi</title>
+  <link rel="stylesheet" href="../css/style-new.css">
+  <link rel="icon" href="../img/pyro-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<div class="header-container">
+  <nav class="navbar">
+      <ul>
+          <li>
+            <a href="https://pyropixle.com" class="center-text">
+              <lord-icon
+                src="https://cdn.lordicon.com/wmwqvixz.json"
+                trigger="in"
+                delay="500"
+                state="in-home"
+                colors="primary:#e4e4e4"
+                style="width:40px;height:40px">
+              </lord-icon>
+              Home</a>
+          </li>
+          <li>
+            <a href="https://pyropixle.com/gtc/">
+              <lord-icon
+                src="https://cdn.lordicon.com/omiqopzf.json"
+                trigger="in"
+                delay="1000"
+                state="in-book"
+                colors="primary:#ffffff"
+                style="width:40px;height:40px">
+              </lord-icon>
+            GTC</a>
+          </li>
+          <li>
+            <a href="https://pyropixle.com/privacy/">
+              <lord-icon
+                  src="https://cdn.lordicon.com/hrjifpbq.json"
+                  trigger="in"
+                  delay="1500"
+                  state="in-account"
+                  colors="primary:#ffffff"
+                  style="width:40px;height:40px">
+              </lord-icon>
+              Privacy</a>
+          </li>
+          <li>
+            <a href="https://pyropixle.com/baxi/" style="color: whitesmoke">
+              <lord-icon
+                src="https://cdn.lordicon.com/jnikqyih.json"
+                trigger="in"
+                delay="2000"
+                state="in-category"
+                colors="primary:#ffffff"
+                style="width:40px;height:40px">
+              </lord-icon>
+              <b><u>Baxi</u></b></a>
+          </li>
+          <li>
+            <a href="https://status.pyropixle.com">
+              <lord-icon
+                src="https://cdn.lordicon.com/wkvacbiw.json"
+                trigger="in"
+                delay="2500"
+                state="in-build"
+                colors="primary:#ffffff"
+                style="width:40px;height:40px">
+              </lord-icon>
+            Status</a>
+          </li>
+          <li>
+            <a href="https://link.pyropixle.com/baxi/">
+              <lord-icon
+                  src="https://cdn.lordicon.com/boyoxams.json"
+                  trigger="in"
+                  delay="3000"
+                  state="in-share"
+                  colors="primary:#ffffff"
+                  style="width:40px;height:40px">
+              </lord-icon>
+            <b><u>Invite Bot</u></b></a>
+          </li>
+      </ul>
+  </nav>
+</div>
+<div class="content no_color">
+  <h1 class="center-text">
+
+    Baxi<br>
+    <a href="" class="typewrite" data-period="2000" data-type='[ " Moderation", " Security", " Guard", " Globalchat", " Minigames", "Fun", " Music", " Ticketing" ]'>
+      <span class="wrap"></span>
+    </a><br>
+  </h1>
+</div>
+
+<div class="grid-container">
+  <div class="left-div content">
+    <h2>About Baxi</h2>
+    <p>Baxi is a multifunctional Discord bot developed by <strong>Red_Wolf2467</strong>. It offers a variety of features, including:</p>
+    <ul>
+      <li>Moderation: Automatic and manual moderation tools</li>
+      <li>Security: Protection against spam and abuse</li>
+      <li>Guard: Monitoring and safeguarding servers</li>
+      <li>Globalchat: Connect with other servers</li>
+      <li>Minigames: Various entertaining games</li>
+      <li>Music: Play and control music</li>
+      <li>Ticketing: Support for ticket systems</li>
+    </ul>
+  </div>
+  
+  <div class="content">
+    <h2>Features</h2>
+    <p>Baxi offers a wide range of features to enhance and secure your Discord server:</p>
+    <ul>
+      <li><strong>Automated Moderation:</strong> Automatic bans, warnings, and actions against rule violations.</li>
+      <li><strong>User Management:</strong> Manage roles, users, and permissions.</li>
+      <li><strong>Security Measures:</strong> Protection against raid attacks, spam, and other threats.</li>
+      <li><strong>Music Control:</strong> High-quality music playback from various platforms.</li>
+      <li><strong>Interactive Minigames:</strong> Various games to entertain the community.</li>
+      <li><strong>Ticket System:</strong> Easy management of support requests and issues.</li>
+    </ul>
+  </div>
+</div>
+
+
+  <div class="content">
+    <h2>Support</h2>
+    <p>If you need help, join our <a href="https://link.pyropixle.com/discord/">Discord server</a>. Our team is ready to assist you!</p>
+  </div>
+
+
+
+<script>
+  var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 150 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+
+    setTimeout(function() {
+      that.tick();
+    }, delta);
+  };
+
+  window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+  };
+</script>
+
+</body>
+</html>
